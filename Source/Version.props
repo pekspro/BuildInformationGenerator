@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <!-- Note: Should also be changed in Constants.cs -->
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <!--<VersionSuffix>preview10</VersionSuffix>-->
+    <PackageVersion Condition="'$(VersionSuffix)' == ''">$(VersionPrefix)</PackageVersion>
+    <PackageVersion Condition="'$(VersionSuffix)' != ''">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
+  </PropertyGroup>
+</Project>

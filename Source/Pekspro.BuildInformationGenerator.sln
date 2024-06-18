@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{78D56637-F921-437D-A9AC-FBEAD78344BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FF6F43E8-36EA-4BF0-9B2E-8ACC91C5F939}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pekspro.BuildInformationGenerator.Nuget.IntegrationTests", "Tests\Pekspro.BuildInformationGenerator.Nuget.IntegrationTests\Pekspro.BuildInformationGenerator.Nuget.IntegrationTests.csproj", "{F03831B0-630E-4B0E-BD25-AFE975B35E69}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pekspro.BuildInformationGenerator.Tests", "Tests\Pekspro.BuildInformationGenerator.Tests\Pekspro.BuildInformationGenerator.Tests.csproj", "{328EFEB4-1D15-453E-9929-6FD0FACF3512}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{AC0DDDB0-385D-43B8-A770-C79EE2077D05}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pekspro.BuildInformationGenerator.NetStandard", "Tests\Pekspro.BuildInformationGenerator.NetStandard\Pekspro.BuildInformationGenerator.NetStandard.csproj", "{40B2D8D1-7523-498D-9753-CECC3A44071A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pekspro.BuildInformationGenerator", "Library\Pekspro.BuildInformationGenerator\Pekspro.BuildInformationGenerator.csproj", "{9BDB754C-CD93-414D-BC87-A6DD765F967B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pekspro.BuildInformationGenerator.Attributes", "Library\Pekspro.BuildInformationGenerator.Attributes\Pekspro.BuildInformationGenerator.Attributes.csproj", "{969F730E-D33D-4037-88CF-FDABFAC5A49C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pekspro.BuildInformationGenerator.IntegrationTests", "Tests\Pekspro.BuildInformationGenerator.IntegrationTests\Pekspro.BuildInformationGenerator.IntegrationTests.csproj", "{CFD4E56D-8D92-4961-85E5-F4011ACBFA41}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pekspro.BuildInformationGenerator.NetStandard.IntegrationTests", "Tests\Pekspro.BuildInformationGenerator.NetStandard.IntegrationTests\Pekspro.BuildInformationGenerator.NetStandard.IntegrationTests.csproj", "{E99B5A97-91A1-47A8-9272-B001F5D3325B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5BA348DB-1958-4108-A54D-4706F802BFEB}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\build-and-test.yml = ..\.github\workflows\build-and-test.yml
+		..\.github\workflows\deploy.yml = ..\.github\workflows\deploy.yml
+		Directory.Build.props = Directory.Build.props
+		..\README.md = ..\README.md
+		Version.props = Version.props
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildInformationSample", "Samples\BuildInformationSample\BuildInformationSample.csproj", "{237FB192-30BE-4F42-9308-0AB8841288F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F03831B0-630E-4B0E-BD25-AFE975B35E69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F03831B0-630E-4B0E-BD25-AFE975B35E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{328EFEB4-1D15-453E-9929-6FD0FACF3512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{328EFEB4-1D15-453E-9929-6FD0FACF3512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{328EFEB4-1D15-453E-9929-6FD0FACF3512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{328EFEB4-1D15-453E-9929-6FD0FACF3512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40B2D8D1-7523-498D-9753-CECC3A44071A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40B2D8D1-7523-498D-9753-CECC3A44071A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40B2D8D1-7523-498D-9753-CECC3A44071A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40B2D8D1-7523-498D-9753-CECC3A44071A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BDB754C-CD93-414D-BC87-A6DD765F967B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BDB754C-CD93-414D-BC87-A6DD765F967B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BDB754C-CD93-414D-BC87-A6DD765F967B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BDB754C-CD93-414D-BC87-A6DD765F967B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{969F730E-D33D-4037-88CF-FDABFAC5A49C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{969F730E-D33D-4037-88CF-FDABFAC5A49C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{969F730E-D33D-4037-88CF-FDABFAC5A49C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{969F730E-D33D-4037-88CF-FDABFAC5A49C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD4E56D-8D92-4961-85E5-F4011ACBFA41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD4E56D-8D92-4961-85E5-F4011ACBFA41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD4E56D-8D92-4961-85E5-F4011ACBFA41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD4E56D-8D92-4961-85E5-F4011ACBFA41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E99B5A97-91A1-47A8-9272-B001F5D3325B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E99B5A97-91A1-47A8-9272-B001F5D3325B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E99B5A97-91A1-47A8-9272-B001F5D3325B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E99B5A97-91A1-47A8-9272-B001F5D3325B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{237FB192-30BE-4F42-9308-0AB8841288F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{237FB192-30BE-4F42-9308-0AB8841288F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{237FB192-30BE-4F42-9308-0AB8841288F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{237FB192-30BE-4F42-9308-0AB8841288F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F03831B0-630E-4B0E-BD25-AFE975B35E69} = {FF6F43E8-36EA-4BF0-9B2E-8ACC91C5F939}
+		{328EFEB4-1D15-453E-9929-6FD0FACF3512} = {FF6F43E8-36EA-4BF0-9B2E-8ACC91C5F939}
+		{40B2D8D1-7523-498D-9753-CECC3A44071A} = {FF6F43E8-36EA-4BF0-9B2E-8ACC91C5F939}
+		{9BDB754C-CD93-414D-BC87-A6DD765F967B} = {78D56637-F921-437D-A9AC-FBEAD78344BE}
+		{969F730E-D33D-4037-88CF-FDABFAC5A49C} = {78D56637-F921-437D-A9AC-FBEAD78344BE}
+		{CFD4E56D-8D92-4961-85E5-F4011ACBFA41} = {FF6F43E8-36EA-4BF0-9B2E-8ACC91C5F939}
+		{E99B5A97-91A1-47A8-9272-B001F5D3325B} = {FF6F43E8-36EA-4BF0-9B2E-8ACC91C5F939}
+		{237FB192-30BE-4F42-9308-0AB8841288F4} = {AC0DDDB0-385D-43B8-A770-C79EE2077D05}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4A183B2-6E11-4336-8E36-A8B22621CD59}
+	EndGlobalSection
+EndGlobal

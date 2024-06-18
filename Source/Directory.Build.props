@@ -1,0 +1,26 @@
+<Project>
+
+  <Import Project="Version.props" />
+
+  <PropertyGroup>
+    <Authors>PEK's Productions</Authors>
+    <Copyright>Copyright © PEK's Productions</Copyright>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>build generator generation codegen codegenerator codegeneration</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+    <LangVersion>latest</LangVersion>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)/../Artifacts</PackageOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All"/>
+  </ItemGroup>
+
+</Project>

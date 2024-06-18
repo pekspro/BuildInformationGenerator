@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <Authors>PEK</Authors>
+    <Company>PEK's Productions</Company>
+    <Copyright>Copyright © PEK's Productions</Copyright>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageId>Pekspro.BuildInformationGenerator</PackageId>
+    <Description>A source generator for creating build information, like build time and commit id.</Description>
+    <PackageReadmeFile>README-NuGet.md</PackageReadmeFile>
+    <PackageIcon>BuildInformationGenerator.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/pekspro/BuildInformationGenerator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/pekspro/BuildInformationGenerator</RepositoryUrl>
+    <PublishRepositoryUrl>false</PublishRepositoryUrl>
+    <PackageTags>build generator generation git codegen codegenerator codegeneration</PackageTags>      
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" PrivateAssets="all" />
+    <!-- Cannot be later than 4.3 to support .NET 6 -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.3.0" PrivateAssets="all" />
+    <ProjectReference Include="..\Pekspro.BuildInformationGenerator.Attributes\Pekspro.BuildInformationGenerator.Attributes.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../../Images/BuildInformationGenerator.png" Pack="true" PackagePath="\" />
+    <None Include="../../../README-NuGet.md" Pack="true" PackagePath="\" />
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None Include="$(OutputPath)\Pekspro.BuildInformationGenerator.Attributes.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None Include="$(OutputPath)\Pekspro.BuildInformationGenerator.Attributes.dll" Pack="true" PackagePath="lib\netstandard2.0" Visible="true" />
+    <None Include="$(OutputPath)\Pekspro.BuildInformationGenerator.Attributes.xml" Pack="true" PackagePath="lib\netstandard2.0" Visible="true" />
+    <None Include="$(OutputPath)\Pekspro.BuildInformationGenerator.Attributes.dll" Pack="true" PackagePath="lib\net451" Visible="true" />
+    <None Include="$(OutputPath)\Pekspro.BuildInformationGenerator.Attributes.xml" Pack="true" PackagePath="lib\net451" Visible="true" />
+  </ItemGroup>
+</Project>

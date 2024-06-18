@@ -1,0 +1,79 @@
+name: Build and test
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        # os: [ubuntu-latest, windows-latest, macos-latest]
+   
+    
+    steps:
+      - uses: actions/checkout@v4
+  
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.301
+            7.0.x
+            6.0.x
+
+      - name: Force globaljson
+        run: dotnet new globaljson --sdk-version "8.0.301" --force
+
+      - name: Cache ~/.nuget/packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            .nuke/temp
+            ~/.nuget/packages
+            !~/.nuget/packages/pekspro.buildinformationgenerator
+            !~/.nuget/packages/pekspro.buildinformationgenerator.attributes
+          key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
+
+      - name: Restore dependencies
+        run: dotnet restore ./Source/
+
+      - name: Build
+        run: dotnet build ./Source/ --no-restore --configuration Debug
+
+      - name: Test
+        run: dotnet test ./Source/ --no-build --configuration Debug --verbosity normal
+
+      - name: Pack BuildInformationGenerator
+        run: dotnet pack ./Source/Library/Pekspro.BuildInformationGenerator/Pekspro.BuildInformationGenerator.csproj --verbosity normal --configuration Release --include-symbols /p:ContinuousIntegrationBuild=true
+
+      - name: Run sample in .NET 8
+        run: dotnet run --project ./Source/Samples/BuildInformationSample/BuildInformationSample.csproj --framework net8.0 --configuration Release
+
+      - name: Run sample in .NET 7
+        run: dotnet run --project ./Source/Samples/BuildInformationSample/BuildInformationSample.csproj --framework net7.0 --configuration Release
+
+      - name: Run sample in .NET 6
+        run: dotnet run --project ./Source/Samples/BuildInformationSample/BuildInformationSample.csproj --framework net6.0 --configuration Release
+
+      # - name: Run sample in .NET 6
+      #   run: |
+      #       dotnet new global.json --sdk-version "6.0.423" --force
+      #       dotnet run --project ./Source/Samples/BuildInformationSample/BuildInformationSample.csproj --framework net6.0 --configuration Release
+
+      # - name: Run sample in .NET 7
+      #   run: |
+      #       dotnet new global.json --sdk-version "7.0.410" --force
+      #       dotnet run --project ./Source/Samples/BuildInformationSample/BuildInformationSample.csproj --framework net7.0 --configuration Release
+
+
+            
+      - uses: actions/upload-artifact@v4.3.3
+        with:
+          name: ${{ runner.os }}-Artifacts
+          path: Artifacts

@@ -1,0 +1,43 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      pushToNuget:
+        description: 'Push to NuGet'
+        default: '0'
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore ./Source/
+
+    - name: Build
+      run: dotnet build ./Source/ --no-restore --configuration Release
+
+    - name: Pack BuildInformationGenerator
+      run: dotnet pack ./Source/Library/Pekspro.BuildInformationGenerator/Pekspro.BuildInformationGenerator.csproj --verbosity normal --configuration Release --include-symbols /p:ContinuousIntegrationBuild=true
+          
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4.3.3
+      with:
+        name: NuGet-packages
+        path: |
+          ./**/*.nupkg
+          ./**/*.snupkg
+          
+    - name: Pushing to NuGet.org
+      if: github.event.inputs.pushToNuget == '1'
+      run: dotnet nuget push ./Artifacts/*.nupkg --skip-duplicate --source https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_API_KEY}}

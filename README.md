@@ -1,6 +1,6 @@
 # Pekspro.BuildInformationGenerator
 
-![Build status](https://github.com/pekspro/BuildInformationGenerator/actions/workflows/BuildAndTest.yml/badge.svg)
+![Build status](https://github.com/pekspro/BuildInformationGenerator/actions/workflows/build-and-test.yml/badge.svg)
 [![NuGet](https://img.shields.io/nuget/v/Pekspro.BuildInformationGenerator.svg)](https://www.nuget.org/packages/Pekspro.BuildInformationGenerator/)
 
 This project simplifies the process of adding build information to your .NET projects. It uses a source generator to embed details like build time, commit ID and branch directly into your code.

@@ -98,7 +98,7 @@ public class InformationProvider
 
             if (status.Contains("detached"))
             {
-                throw new Exception("Git is in detached mode. Branch name is not availible. If you are running this in CI/CD pipeline, try set the branch name to the BUILD_SOURCEBRANCHNAME environment variable.");
+                throw new Exception("Git is in detached mode. Branch name is not available. If you are running this in CI/CD pipeline, try set the branch name to the BUILD_SOURCEBRANCHNAME environment variable.");
             }
 
             throw new Exception("Git branch not found. Is Git initialized?");

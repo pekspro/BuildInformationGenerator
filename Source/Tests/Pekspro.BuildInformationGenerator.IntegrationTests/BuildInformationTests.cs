@@ -24,18 +24,20 @@ public class BuildInformationTests
     [Fact]
     public void GitCommitId()
     {
-        Assert.Equal(FakeValues.FakeGitCommitId, BuildInformationGitCommitId.GitCommitId);
-        Assert.Equal(BuildInformationGitCommitId.GitShortCommitId, FakeValues.FakeGitCommitId.Substring(0, 8));
+        Assert.Equal(FakeValues.FakeGitCommitId, BuildInformationGitCommitId.Git.CommitId);
+        Assert.Equal(BuildInformationGitCommitId.Git.ShortCommitId, FakeValues.FakeGitCommitId.Substring(0, 8));
 
-        Assert.Equal(2, typeof(BuildInformationGitCommitId).GetFields().Length);
+        Assert.Empty(typeof(BuildInformationGitCommitId).GetFields());
+        Assert.Equal(2, typeof(BuildInformationGitCommitId.Git).GetFields().Length);
     }
 
     [Fact]
     public void GitBranch()
     {
-        Assert.Equal(FakeValues.FakeGitBranch, BuildInformationGitBranch.GitBranch);
+        Assert.Equal(FakeValues.FakeGitBranch, BuildInformationGitBranch.Git.Branch);
 
-        Assert.Single(typeof(BuildInformationGitBranch).GetFields());
+        Assert.Empty(typeof(BuildInformationGitBranch).GetFields());
+        Assert.Single(typeof(BuildInformationGitBranch.Git).GetFields());
     }
 
     [Fact]
@@ -65,17 +67,19 @@ public class BuildInformationTests
     [Fact]
     public void WorkloadMauiVersion()
     {
-        Assert.Equal(FakeValues.FakeWorkloadMaui, BuildInformationWorkloadMauiVersion.WorkloadMauiVersion);
+        Assert.Equal(FakeValues.FakeWorkloadMaui, BuildInformationWorkloadMauiVersion.Workloads.MauiVersion);
 
-        Assert.Single(typeof(BuildInformationWorkloadMauiVersion).GetFields());
+        Assert.Empty(typeof(BuildInformationWorkloadMauiVersion).GetFields());
+        Assert.Single(typeof(BuildInformationWorkloadMauiVersion.Workloads).GetFields());
     }
 
     [Fact]
     public void WorkloadWasmToolsVersion()
     {
-        Assert.Equal(FakeValues.FakeWorkloadWasmTools, BuildInformationWorkloadWasmToolsVersion.WorkloadWasmToolsVersion);
+        Assert.Equal(FakeValues.FakeWorkloadWasmTools, BuildInformationWorkloadWasmToolsVersion.Workloads.WasmToolsVersion);
 
-        Assert.Single(typeof(BuildInformationWorkloadWasmToolsVersion).GetFields());
+        Assert.Empty(typeof(BuildInformationWorkloadWasmToolsVersion).GetFields());
+        Assert.Single(typeof(BuildInformationWorkloadWasmToolsVersion.Workloads).GetFields());
     }
 
     [Fact]
@@ -83,14 +87,16 @@ public class BuildInformationTests
     {
         Assert.Equal(FakeValues.FakeBuildTime.UtcDateTime, BuildInformationAll.BuildTime);
         Assert.Equal(FakeValues.FakeBuildTime, BuildInformationAll.LocalBuildTime);
-        Assert.Equal(FakeValues.FakeGitCommitId, BuildInformationAll.GitCommitId);
-        Assert.Equal(FakeValues.FakeGitBranch, BuildInformationAll.GitBranch);
+        Assert.Equal(FakeValues.FakeGitCommitId, BuildInformationAll.Git.CommitId);
+        Assert.Equal(FakeValues.FakeGitBranch, BuildInformationAll.Git.Branch);
         Assert.Equal(FakeValues.FakeAssemblyVersion, BuildInformationAll.AssemblyVersionString);
         Assert.Equal(FakeValues.FakeOSVersion, BuildInformationAll.OSVersion);
         Assert.Equal(FakeValues.FakeDotNetVersion, BuildInformationAll.DotNetSdkVersion);
-        Assert.Equal(FakeValues.FakeWorkloadMaui, BuildInformationAll.WorkloadMauiVersion);
-        Assert.Equal(FakeValues.FakeWorkloadWasmTools, BuildInformationAll.WorkloadWasmToolsVersion);
+        Assert.Equal(FakeValues.FakeWorkloadMaui, BuildInformationAll.Workloads.MauiVersion);
+        Assert.Equal(FakeValues.FakeWorkloadWasmTools, BuildInformationAll.Workloads.WasmToolsVersion);
 
-        Assert.Equal(10, typeof(BuildInformationAll).GetFields().Length);
+        Assert.Equal(5, typeof(BuildInformationAll).GetFields().Length);
+        Assert.Equal(3, typeof(BuildInformationAll.Git).GetFields().Length);
+        Assert.Equal(2, typeof(BuildInformationAll.Workloads).GetFields().Length);
     }
 }

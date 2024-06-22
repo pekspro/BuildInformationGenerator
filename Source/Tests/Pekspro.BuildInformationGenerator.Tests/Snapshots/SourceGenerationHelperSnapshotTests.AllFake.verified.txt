@@ -29,22 +29,30 @@ namespace My.Namespace
         public static readonly global::System.DateTimeOffset LocalBuildTime = new global::System.DateTimeOffset(642830804550000000L, new global::System.TimeSpan(-144000000000));
 
         /// <summary>
-        /// The commit id in git at the time of build.
-        /// Faked value.
+        /// Build information related to git.
         /// </summary>
-        public const string GitCommitId = "0123456789abcef0123456789abcef0123456789";
+        static public partial class Git
+        {
 
-        /// <summary>
-        /// The short commit id in git at the time of build.
-        /// Faked value.
-        /// </summary>
-        public const string GitShortCommitId = "01234567";
+            /// <summary>
+            /// The commit id in git at the time of build.
+            /// Faked value.
+            /// </summary>
+            public const string CommitId = "0123456789abcef0123456789abcef0123456789";
 
-        /// <summary>
-        /// The git branch used at build time.
-        /// Faked value.
-        /// </summary>
-        public const string GitBranch = "fake-main";
+            /// <summary>
+            /// The short commit id in git at the time of build.
+            /// Faked value.
+            /// </summary>
+            public const string ShortCommitId = "01234567";
+
+            /// <summary>
+            /// The git branch used at build time.
+            /// Faked value.
+            /// </summary>
+            public const string Branch = "fake-main";
+
+        }
 
         /// <summary>
         /// Version of the assembly.
@@ -65,16 +73,24 @@ namespace My.Namespace
         public const string DotNetSdkVersion = "6.0.100";
 
         /// <summary>
-        /// Workload MAUI version used at build time.
-        /// Faked value.
+        /// Build information related to .NET Workloads.
         /// </summary>
-        public const string WorkloadMauiVersion = "1.0.1/0.1.0-fake";
+        static public partial class Workloads
+        {
 
-        /// <summary>
-        /// Workload wasm-tools version used at build time.
-        /// Faked value.
-        /// </summary>
-        public const string WorkloadWasmToolsVersion = "2.0.2/0.2.0-fake";
+            /// <summary>
+            /// MAUI version used at build time.
+            /// Faked value.
+            /// </summary>
+            public const string MauiVersion = "1.0.1/0.1.0-fake";
+
+            /// <summary>
+            /// wasm-tools version used at build time.
+            /// Faked value.
+            /// </summary>
+            public const string WasmToolsVersion = "2.0.2/0.2.0-fake";
+
+        }
 
     }
 }

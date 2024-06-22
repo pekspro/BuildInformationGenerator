@@ -17,10 +17,18 @@ namespace My.Namespace
     {
 
         /// <summary>
-        /// Workload wasm-tools version used at build time.
-        /// Value was taken from the dotnet workload list command.
+        /// Build information related to .NET Workloads.
         /// </summary>
-        public const string WorkloadWasmToolsVersion = "8.0.5/\"8.0.100\"";
+        static public partial class Workloads
+        {
+
+            /// <summary>
+            /// wasm-tools version used at build time.
+            /// Value was taken from the dotnet workload list command.
+            /// </summary>
+            public const string WasmToolsVersion = "8.0.5/\"8.0.100\"";
+
+        }
 
     }
 }

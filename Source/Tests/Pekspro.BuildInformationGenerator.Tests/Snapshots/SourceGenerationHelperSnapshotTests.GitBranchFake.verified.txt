@@ -17,10 +17,18 @@ namespace My.Namespace
     {
 
         /// <summary>
-        /// The git branch used at build time.
-        /// Faked value.
+        /// Build information related to git.
         /// </summary>
-        public const string GitBranch = "fake-main";
+        static public partial class Git
+        {
+
+            /// <summary>
+            /// The git branch used at build time.
+            /// Faked value.
+            /// </summary>
+            public const string Branch = "fake-main";
+
+        }
 
     }
 }

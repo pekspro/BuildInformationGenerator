@@ -6,15 +6,15 @@ Console.WriteLine($"Build time: {BuildInfo.BuildTime}");
 Console.WriteLine($"Local build time: {BuildInfo.LocalBuildTime}");
 Console.WriteLine($"Assembly version: {BuildInfo.AssemblyVersionString}");
 Console.WriteLine($"OS Version: {BuildInfo.OSVersion}");
-Console.WriteLine($"Commit id: {BuildInfo.GitCommitId}");
-Console.WriteLine($"Short commit id: {BuildInfo.GitShortCommitId}");
-Console.WriteLine($"Branch: {BuildInfo.GitBranch}");
+Console.WriteLine($"Commit id: {BuildInfo.Git.CommitId}");
+Console.WriteLine($"Short commit id: {BuildInfo.Git.ShortCommitId}");
+Console.WriteLine($"Branch: {BuildInfo.Git.Branch}");
 Console.WriteLine($".NET SDK: {BuildInfo.DotNetSdkVersion}");
-Console.WriteLine($"Workload MAUI: {BuildInfo.WorkloadMauiVersion}");
-Console.WriteLine($"Workload wasm tools: {BuildInfo.WorkloadWasmToolsVersion}");
+Console.WriteLine($"Workload MAUI: {BuildInfo.Workloads.MauiVersion}");
+Console.WriteLine($"Workload wasm tools: {BuildInfo.Workloads.WasmToolsVersion}");
 
 [BuildInformation(
-    FakeIfDebug = false, 
+    FakeIfDebug = false,
     AddBuildTime = true,
     AddLocalBuildTime = true,
     AddAssemblyVersion = true,
@@ -22,10 +22,9 @@ Console.WriteLine($"Workload wasm tools: {BuildInfo.WorkloadWasmToolsVersion}");
     AddGitCommitId = true,
     AddGitBranch = true,
     AddDotNetSdkVersion = true,
-    AddWorkloadMaui = true, 
+    AddWorkloadMaui = true,
     AddWorkloadWasmTools = true
     )]
 partial class BuildInfo
 {
-
 }

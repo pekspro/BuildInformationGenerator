@@ -24,8 +24,7 @@ public static class SourceGenerationHelper
         bool added = false;
 
         added |= AddBuildTime(sb, buildInfoToGenerate, compilationInformation, informationProvider);
-        added |= AddGitCommitId(sb, buildInfoToGenerate, compilationInformation, informationProvider);
-        added |= AddGitBranch(sb, buildInfoToGenerate, informationProvider);
+        added |= AddGit(sb, buildInfoToGenerate, compilationInformation, informationProvider);
         added |= AddAssemblyVersion(sb, buildInfoToGenerate, compilationInformation, informationProvider);
         added |= AddOSVersion(sb, buildInfoToGenerate, informationProvider);
         added |= AddDotNetVersion(sb, buildInfoToGenerate, informationProvider);
@@ -81,11 +80,36 @@ public static class SourceGenerationHelper
         return false;
     }
 
+    private static bool AddGit(StringBuilder sb, in BuildInformationToGenerate buildInfoToGenerate, in CompilationInformation compilationInformation, InformationProvider informationProvider)
+    {
+        if (buildInfoToGenerate.AddGitCommitId || buildInfoToGenerate.AddGitBranch)
+        {
+            sb.Append(@"
+
+        /// <summary>
+        /// Build information related to git.
+        /// </summary>
+        static public partial class Git
+        {");
+
+            AddGitCommitId(sb, buildInfoToGenerate, compilationInformation, informationProvider);
+            AddGitBranch(sb, buildInfoToGenerate, informationProvider);
+
+            sb.Append(@"
+
+        }");
+
+            return true;
+        }
+
+        return false;
+    }
+
     private static bool AddGitCommitId(StringBuilder sb, in BuildInformationToGenerate buildInfoToGenerate, in CompilationInformation compilationInformation,InformationProvider informationProvider)
     {
         if (buildInfoToGenerate.AddGitCommitId)
         {
-            string commitId = "", shortCommitId = "", source = "";
+            string commitId = "", source = "";
 
             try
             {
@@ -98,21 +122,21 @@ public static class SourceGenerationHelper
 #warning An error occurred while getting the git commit id: ").Append(ex.Message);
             }
 
-            shortCommitId = commitId.Length >= 8 ? commitId.Substring(0, 8) : commitId;
+            string shortCommitId = commitId.Length >= 8 ? commitId.Substring(0, 8) : commitId;
 
             sb.Append(@"
 
-        /// <summary>
-        /// The commit id in git at the time of build.
-        /// ").Append(source).Append(@"
-        /// </summary>
-        public const string GitCommitId = ").AppendAndQouteAndFormatLiteral(commitId).Append(@";
+            /// <summary>
+            /// The commit id in git at the time of build.
+            /// ").Append(source).Append(@"
+            /// </summary>
+            public const string CommitId = ").AppendAndQouteAndFormatLiteral(commitId).Append(@";
 
-        /// <summary>
-        /// The short commit id in git at the time of build.
-        /// ").Append(source).Append(@"
-        /// </summary>
-        public const string GitShortCommitId = ").AppendAndQouteAndFormatLiteral(shortCommitId).Append(@";");
+            /// <summary>
+            /// The short commit id in git at the time of build.
+            /// ").Append(source).Append(@"
+            /// </summary>
+            public const string ShortCommitId = ").AppendAndQouteAndFormatLiteral(shortCommitId).Append(@";");
 
             return true;
         }
@@ -140,11 +164,11 @@ public static class SourceGenerationHelper
 
             sb.Append(@"
 
-        /// <summary>
-        /// The git branch used at build time.
-        /// ").Append(source).Append(@"
-        /// </summary>
-        public const string GitBranch = ").AppendAndQouteAndFormatLiteral(branch).Append(@";");
+            /// <summary>
+            /// The git branch used at build time.
+            /// ").Append(source).Append(@"
+            /// </summary>
+            public const string Branch = ").AppendAndQouteAndFormatLiteral(branch).Append(@";");
 
             return true;
         }
@@ -227,6 +251,15 @@ public static class SourceGenerationHelper
     {
         if (buildInfoToGenerate.AddWorkloadMaui || buildInfoToGenerate.AddWorkloadWasmTools)
         {
+            sb.Append(@"
+
+        /// <summary>
+        /// Build information related to .NET Workloads.
+        /// </summary>
+        static public partial class Workloads
+        {");
+
+
             string workLoadList = "";
 
             try
@@ -246,11 +279,11 @@ public static class SourceGenerationHelper
 
                 sb.Append(@"
 
-        /// <summary>
-        /// Workload MAUI version used at build time.
-        /// ").Append(maui.Source).Append(@"
-        /// </summary>
-        public const string WorkloadMauiVersion = ").AppendAndQouteAndFormatLiteral(maui.Value).Append(@";");
+            /// <summary>
+            /// MAUI version used at build time.
+            /// ").Append(maui.Source).Append(@"
+            /// </summary>
+            public const string MauiVersion = ").AppendAndQouteAndFormatLiteral(maui.Value).Append(@";");
             }
 
             if (buildInfoToGenerate.AddWorkloadWasmTools)
@@ -259,12 +292,16 @@ public static class SourceGenerationHelper
 
                 sb.Append(@"
 
-        /// <summary>
-        /// Workload wasm-tools version used at build time.
-        /// ").Append(wasmTools.Source).Append(@"
-        /// </summary>
-        public const string WorkloadWasmToolsVersion = ").AppendAndQouteAndFormatLiteral(wasmTools.Value).Append(@";");
+            /// <summary>
+            /// wasm-tools version used at build time.
+            /// ").Append(wasmTools.Source).Append(@"
+            /// </summary>
+            public const string WasmToolsVersion = ").AppendAndQouteAndFormatLiteral(wasmTools.Value).Append(@";");
             }
+
+            sb.Append(@"
+
+        }");
 
             return true;
         }

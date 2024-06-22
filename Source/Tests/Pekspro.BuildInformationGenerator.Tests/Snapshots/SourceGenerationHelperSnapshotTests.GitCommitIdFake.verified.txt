@@ -17,16 +17,24 @@ namespace My.Namespace
     {
 
         /// <summary>
-        /// The commit id in git at the time of build.
-        /// Faked value.
+        /// Build information related to git.
         /// </summary>
-        public const string GitCommitId = "0123456789abcef0123456789abcef0123456789";
+        static public partial class Git
+        {
 
-        /// <summary>
-        /// The short commit id in git at the time of build.
-        /// Faked value.
-        /// </summary>
-        public const string GitShortCommitId = "01234567";
+            /// <summary>
+            /// The commit id in git at the time of build.
+            /// Faked value.
+            /// </summary>
+            public const string CommitId = "0123456789abcef0123456789abcef0123456789";
+
+            /// <summary>
+            /// The short commit id in git at the time of build.
+            /// Faked value.
+            /// </summary>
+            public const string ShortCommitId = "01234567";
+
+        }
 
     }
 }

@@ -17,10 +17,18 @@ namespace My.Namespace
     {
 
         /// <summary>
-        /// Workload MAUI version used at build time.
-        /// Value was taken from the dotnet workload list command.
+        /// Build information related to .NET Workloads.
         /// </summary>
-        public const string WorkloadMauiVersion = "8.0.40/8.0.\"100\"";
+        static public partial class Workloads
+        {
+
+            /// <summary>
+            /// MAUI version used at build time.
+            /// Value was taken from the dotnet workload list command.
+            /// </summary>
+            public const string MauiVersion = "8.0.40/8.0.\"100\"";
+
+        }
 
     }
 }

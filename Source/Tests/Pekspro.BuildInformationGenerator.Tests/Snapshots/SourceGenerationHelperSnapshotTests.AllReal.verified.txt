@@ -29,22 +29,30 @@ namespace My.Namespace
         public static readonly global::System.DateTimeOffset LocalBuildTime = new global::System.DateTimeOffset(638018070060000000L, new global::System.TimeSpan(-72000000000));
 
         /// <summary>
-        /// The commit id in git at the time of build.
-        /// Value was taken from git commit id.
+        /// Build information related to git.
         /// </summary>
-        public const string GitCommitId = "c0dec0dec0dec0dec0dec0dec0dec0dec0dec0de\nLine 2";
+        static public partial class Git
+        {
 
-        /// <summary>
-        /// The short commit id in git at the time of build.
-        /// Value was taken from git commit id.
-        /// </summary>
-        public const string GitShortCommitId = "c0dec0de";
+            /// <summary>
+            /// The commit id in git at the time of build.
+            /// Value was taken from git commit id.
+            /// </summary>
+            public const string CommitId = "c0dec0dec0dec0dec0dec0dec0dec0dec0dec0de\nLine 2";
 
-        /// <summary>
-        /// The git branch used at build time.
-        /// Value was taken from git branch.
-        /// </summary>
-        public const string GitBranch = "my-magic-branch\nLine 2";
+            /// <summary>
+            /// The short commit id in git at the time of build.
+            /// Value was taken from git commit id.
+            /// </summary>
+            public const string ShortCommitId = "c0dec0de";
+
+            /// <summary>
+            /// The git branch used at build time.
+            /// Value was taken from git branch.
+            /// </summary>
+            public const string Branch = "my-magic-branch\nLine 2";
+
+        }
 
         /// <summary>
         /// Version of the assembly.
@@ -65,16 +73,24 @@ namespace My.Namespace
         public const string DotNetSdkVersion = "49.0.100\nLine 2";
 
         /// <summary>
-        /// Workload MAUI version used at build time.
-        /// Value was taken from the dotnet workload list command.
+        /// Build information related to .NET Workloads.
         /// </summary>
-        public const string WorkloadMauiVersion = "8.0.40/8.0.\"100\"";
+        static public partial class Workloads
+        {
 
-        /// <summary>
-        /// Workload wasm-tools version used at build time.
-        /// Value was taken from the dotnet workload list command.
-        /// </summary>
-        public const string WorkloadWasmToolsVersion = "8.0.5/\"8.0.100\"";
+            /// <summary>
+            /// MAUI version used at build time.
+            /// Value was taken from the dotnet workload list command.
+            /// </summary>
+            public const string MauiVersion = "8.0.40/8.0.\"100\"";
+
+            /// <summary>
+            /// wasm-tools version used at build time.
+            /// Value was taken from the dotnet workload list command.
+            /// </summary>
+            public const string WasmToolsVersion = "8.0.5/\"8.0.100\"";
+
+        }
 
     }
 }

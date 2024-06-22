@@ -17,10 +17,18 @@ namespace My.Namespace
     {
 
         /// <summary>
-        /// The git branch used at build time.
-        /// The value was generated in a dark place.
+        /// Build information related to git.
         /// </summary>
-        public const string GitBranch = "This is an evil string with a lot\\aof new \\ttabs\\vand other evil \"characters\". ;-)";
+        static public partial class Git
+        {
+
+            /// <summary>
+            /// The git branch used at build time.
+            /// The value was generated in a dark place.
+            /// </summary>
+            public const string Branch = "This is an evil string with a lot\\aof new \\ttabs\\vand other evil \"characters\". ;-)";
+
+        }
 
     }
 }

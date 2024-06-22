@@ -17,10 +17,18 @@ namespace My.Namespace
     {
 
         /// <summary>
-        /// The git branch used at build time.
-        /// Value was taken from git branch.
+        /// Build information related to git.
         /// </summary>
-        public const string GitBranch = "my-magic-branch\nLine 2";
+        static public partial class Git
+        {
+
+            /// <summary>
+            /// The git branch used at build time.
+            /// Value was taken from git branch.
+            /// </summary>
+            public const string Branch = "my-magic-branch\nLine 2";
+
+        }
 
     }
 }

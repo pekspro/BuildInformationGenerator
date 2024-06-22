@@ -64,21 +64,20 @@ Setting `ExcludeAssets="runtime"` ensures the
 **Pekspro.BuildInformationGenerator.Attributes.dll** file is not copied to your
 build output (it is not required at runtime).
 
-
 ## Configuration
 
 The `[BuildInformation]` attribute has a number of properties you can set to
 control the generated class.
 
-| Property               | Description                                         |
-| ---------------------- | --------------------------------------------------- |
-| `AddBuildTime`         | Build time (in UTC).                                |
-| `AddLocalBuildTime`    | Local build time.                                   |
-| `AddAssemblyVersion`   | Assembly version.                                   |
-| `AddOSVersion`         | OS version of the machine where the build happens.  |
-| `AddGitCommitId`       | Commit id.                                          |
-| `AddGitBranch`         | Branch name.                                        |
-| `AddDotNetSdkVersion`  | .NET SDK version.                                   |
+| Property                      | Description                                         |
+| ----------------------------- | --------------------------------------------------- |
+| `AddBuildTime`                | Build time (in UTC).                                |
+| `AddLocalBuildTime`           | Local build time.                                   |
+| `AddAssemblyVersion`          | Assembly version.                                   |
+| `AddOSVersion`                | OS version of the machine where the build happens.  |
+| `AddGitCommitId`              | Commit id.                                          |
+| `AddGitBranch`                | Branch name.                                        |
+| `AddDotNetSdkVersion`         | .NET SDK version.                                   |
 | `AddWorkloadMauiVersion`      | Workload for .NET MAUI.                             |
 | `AddWorkloadWasmToolsVersion` | Workload for WebAssembly tools.                     |
 
@@ -167,9 +166,22 @@ static partial class BuildInfoAll
 }
 ```
 
+You can view your generated code by right clicking on your class name and selecting **Go to definition**.
+
+Another option is to add this to your `.csproj` file:
+
+```XML
+<PropertyGroup>
+  <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+  <CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)\GeneratedFiles</CompilerGeneratedFilesOutputPath>
+</PropertyGroup>
+```
+
+You will then find the file in the `obj` directory.
+
 ### Performance
 
-You can also specify if you want to have faked or real values:
+You can specify if you want to have faked or real values:
 
 | Property        | Default | Description                           |
 | --------------- | ------- | ------------------------------------- |
@@ -181,22 +193,22 @@ process. This should be fast, but probably nothing you want during normal
 development. In Visual Studio, a source generator can be called very often
 (every keystroke), so try to use fake values in development.
 
-| Property               | Data source                                         |
-| ---------------------- | --------------------------------------------------- |
-| `BuildTime`         | `DateTimeOffset`.                                |
-| `LocalBuildTime`    | `DateTimeOffset`.                                   |
-| `AssemblyVersion`   | `AssemblyVersion` attribute.                                   |
-| `OSVersion`         | `Environment.OSVersion`.  |
-| `Git.CommitId`       | `AssemblyInformationalVersionAttribute` attribute, by default but also the **process** `git rev-parse HEAD` as a fallback.                                          |
-| `Git.Branch`         | **Process** `git branch --show-current`. The environment variable `BUILD_SOURCEBRANCHNAME` might be used instead, that is automatically set in Azure Devops where git cannot be used to the the branch.                                       |
-| `DotNetSdkVersion`  | **Process** `dotnet --version`.                                   |
-| `Workloads.MauiVersion`      | **Process** `dotnet workload list`.                             |
+| Property                     | Data source                                         |
+| ---------------------------- | --------------------------------------------------- |
+| `BuildTime`                  | `DateTimeOffset`.                                   |
+| `LocalBuildTime`             | `DateTimeOffset`.                                   |
+| `AssemblyVersion`            | `AssemblyVersion` attribute.                        |
+| `OSVersion`                  | `Environment.OSVersion`.                            |
+| `Git.CommitId`               | `AssemblyInformationalVersionAttribute` attribute, by default but also the **process** `git rev-parse HEAD` as a fallback. |
+| `Git.Branch`                 | **Process** `git branch --show-current`. The environment variable `BUILD_SOURCEBRANCHNAME` might be used instead, that is automatically set in Azure Devops where git cannot be used to the the branch. |
+| `DotNetSdkVersion`           | **Process** `dotnet --version`.                     |
+| `Workloads.MauiVersion`      | **Process** `dotnet workload list`.                 |
 | `Workloads.WasmToolsVersion` | **Process** `dotnet workload list`                  |
 
 ## Requirements
 
 This source generator requires the .NET 7 SDK. You can target earlier frameworks
-like .NET Core 3.1 etc, but the _SDK_ must be at least 7.0.100.
+like .NET Core 3.1 etc, but the **SDK** must be at least 7.0.100.
 
 ## Credits
 

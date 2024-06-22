@@ -18,7 +18,7 @@ Constants will automatically be added to this class that you can use like this:
 
 ```csharp
 Console.WriteLine($"Build time: {MyBuildInformation.BuildTime}");
-Console.WriteLine($"Commit id: {MyBuildInformation.GitCommitId}");
+Console.WriteLine($"Commit id: {MyBuildInformation.Git.CommitId}");
 ```
 
 ## Installation
@@ -39,7 +39,7 @@ This adds a `<PackageReference>` to your project. It's recommended that you also
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
-  <PackageReference Include="Pekspro.BuildInformationGenerator" Version="0.0.1" 
+  <PackageReference Include="Pekspro.BuildInformationGenerator" Version="0.2.0" 
     PrivateAssets="all" ExcludeAssets="runtime" />
 
 </Project>
@@ -48,7 +48,6 @@ This adds a `<PackageReference>` to your project. It's recommended that you also
 Setting `PrivateAssets="all"` means any projects referencing this one won't get a reference to the _Pekspro.BuildInformationGenerator_ package.
 
 Setting `ExcludeAssets="runtime"` ensures the _Pekspro.BuildInformationGenerator.Attributes.dll_ file is not copied to your build output (it is not required at runtime).
-
 
 ## Links
 

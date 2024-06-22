@@ -13,7 +13,7 @@ public readonly record struct BuildInformationToGenerate
     public readonly bool AddAssemblyVersion;
     public readonly bool AddOSVersion;
     public readonly bool AddDotNetSdkVersion;
-    public readonly bool AddWorkloadMaui;
+    public readonly bool AddWorkloadMauiVersion;
     public readonly bool AddWorkloadWasmTools;
 
     public readonly bool Fake;
@@ -29,7 +29,7 @@ public readonly record struct BuildInformationToGenerate
         bool addAssemblyVersion,
         bool addOSVersion,
         bool addDotNetSdkVersion,
-        bool addWorkloadMaui,
+        bool addWorkloadMauiVersion,
         bool addWorkloadWasmTools,
         bool fake
         )
@@ -54,7 +54,7 @@ public readonly record struct BuildInformationToGenerate
         AddGitBranch = addGitBranch;
         AddOSVersion = addOSVersion;
         AddDotNetSdkVersion = addDotNetSdkVersion;
-        AddWorkloadMaui = addWorkloadMaui;
+        AddWorkloadMauiVersion = addWorkloadMauiVersion;
         AddWorkloadWasmTools = addWorkloadWasmTools;
         Fake = fake;        
     }

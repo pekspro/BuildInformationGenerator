@@ -22,7 +22,7 @@ Console.WriteLine($"Workload wasm tools: {BuildInfo.Workloads.WasmToolsVersion}"
     AddGitCommitId = true,
     AddGitBranch = true,
     AddDotNetSdkVersion = true,
-    AddWorkloadMaui = true,
+    AddWorkloadMauiVersion = true,
     AddWorkloadWasmTools = true
     )]
 partial class BuildInfo

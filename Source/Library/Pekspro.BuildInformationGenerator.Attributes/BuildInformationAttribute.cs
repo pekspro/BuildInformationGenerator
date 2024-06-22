@@ -53,7 +53,7 @@
         /// Weather to include the .NET MAUI workload version in the generated class.
         /// Is set false by default.
         /// </summary>
-        public bool AddWorkloadMaui { get; set; }
+        public bool AddWorkloadMauiVersion { get; set; }
 
         /// <summary>
         /// Weather to include the .NET Wasm-tools workload version in the generated class.

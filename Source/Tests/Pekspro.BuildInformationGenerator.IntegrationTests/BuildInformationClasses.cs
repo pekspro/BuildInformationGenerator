@@ -44,7 +44,7 @@ namespace Pekspro.BuildInformationGenerator.Tests
 
     }
 
-    [BuildInformation(FakeIfDebug = true, FakeIfRelease = true, AddWorkloadMaui = true)]
+    [BuildInformation(FakeIfDebug = true, FakeIfRelease = true, AddWorkloadMauiVersion = true)]
     public partial class BuildInformationWorkloadMauiVersion
     {
 
@@ -56,7 +56,7 @@ namespace Pekspro.BuildInformationGenerator.Tests
 
     }
 
-    [BuildInformation(FakeIfDebug = true, FakeIfRelease = true, AddBuildTime = true, AddLocalBuildTime = true, AddGitCommitId = true, AddGitBranch = true, AddAssemblyVersion = true, AddOSVersion = true, AddDotNetSdkVersion = true, AddWorkloadMaui = true, AddWorkloadWasmTools = true)]
+    [BuildInformation(FakeIfDebug = true, FakeIfRelease = true, AddBuildTime = true, AddLocalBuildTime = true, AddGitCommitId = true, AddGitBranch = true, AddAssemblyVersion = true, AddOSVersion = true, AddDotNetSdkVersion = true, AddWorkloadMauiVersion = true, AddWorkloadWasmTools = true)]
     public partial class BuildInformationAll
     {
 

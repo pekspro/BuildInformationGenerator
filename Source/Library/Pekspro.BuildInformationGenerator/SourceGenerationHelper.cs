@@ -249,7 +249,7 @@ public static class SourceGenerationHelper
 
     private static bool AddWorkloadInfo(StringBuilder sb, in BuildInformationToGenerate buildInfoToGenerate, in InformationProvider informationProvider)
     {
-        if (buildInfoToGenerate.AddWorkloadMaui || buildInfoToGenerate.AddWorkloadWasmTools)
+        if (buildInfoToGenerate.AddWorkloadMauiVersion || buildInfoToGenerate.AddWorkloadWasmTools)
         {
             sb.Append(@"
 
@@ -273,7 +273,7 @@ public static class SourceGenerationHelper
 #warning An error occurred while getting the MAUI workloads: ").Append(ex.Message);
             }
 
-            if (buildInfoToGenerate.AddWorkloadMaui)
+            if (buildInfoToGenerate.AddWorkloadMauiVersion)
             {
                 var maui = informationProvider.GetMauiVersion(buildInfoToGenerate, workLoadList);
 

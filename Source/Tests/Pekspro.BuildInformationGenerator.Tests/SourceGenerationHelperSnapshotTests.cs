@@ -25,7 +25,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: true
             );
 
@@ -51,7 +51,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: true
             );
 
@@ -77,7 +77,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: false
             );
 
@@ -104,7 +104,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: true
             );
 
@@ -130,7 +130,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: false
             );
 
@@ -157,7 +157,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: true
             );
 
@@ -183,7 +183,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: false
             );
 
@@ -210,7 +210,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: true
             );
 
@@ -236,7 +236,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: false
             );
 
@@ -263,7 +263,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: true
             );
 
@@ -289,7 +289,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: false
             );
 
@@ -318,7 +318,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: true,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: true
             );
 
@@ -344,7 +344,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: true,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: false
             );
 
@@ -373,7 +373,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: true,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: true
             );
 
@@ -399,7 +399,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: true,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: false
             );
 
@@ -428,7 +428,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: true,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: true
             );
 
@@ -454,7 +454,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: true,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: false
             );
 
@@ -483,7 +483,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: true,
+            addWorkloadWasmToolsVersion: true,
             fake: true
             );
 
@@ -509,7 +509,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: true,
+            addWorkloadWasmToolsVersion: true,
             fake: false
             );
 
@@ -539,7 +539,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: true,
             addDotNetSdkVersion: true,
             addWorkloadMauiVersion: true,
-            addWorkloadWasmTools: true,
+            addWorkloadWasmToolsVersion: true,
             fake: true
             );
 
@@ -565,7 +565,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: true,
             addDotNetSdkVersion: true,
             addWorkloadMauiVersion: true,
-            addWorkloadWasmTools: true,
+            addWorkloadWasmToolsVersion: true,
             fake: false
             );
 
@@ -593,7 +593,7 @@ public class SourceGenerationHelperSnapshotTests
             addOSVersion: false,
             addDotNetSdkVersion: false,
             addWorkloadMauiVersion: false,
-            addWorkloadWasmTools: false,
+            addWorkloadWasmToolsVersion: false,
             fake: true
             );
 

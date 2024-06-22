@@ -59,7 +59,7 @@
         /// Weather to include the .NET Wasm-tools workload version in the generated class.
         /// Is set false by default.
         /// </summary>
-        public bool AddWorkloadWasmTools { get; set; }
+        public bool AddWorkloadWasmToolsVersion { get; set; }
 
         /// <summary>
         /// If values should be faked when the DEBUG symbol is defined.

@@ -249,7 +249,7 @@ public static class SourceGenerationHelper
 
     private static bool AddWorkloadInfo(StringBuilder sb, in BuildInformationToGenerate buildInfoToGenerate, in InformationProvider informationProvider)
     {
-        if (buildInfoToGenerate.AddWorkloadMauiVersion || buildInfoToGenerate.AddWorkloadWasmTools)
+        if (buildInfoToGenerate.AddWorkloadMauiVersion || buildInfoToGenerate.AddWorkloadWasmToolsVersion)
         {
             sb.Append(@"
 
@@ -286,7 +286,7 @@ public static class SourceGenerationHelper
             public const string MauiVersion = ").AppendAndQouteAndFormatLiteral(maui.Value).Append(@";");
             }
 
-            if (buildInfoToGenerate.AddWorkloadWasmTools)
+            if (buildInfoToGenerate.AddWorkloadWasmToolsVersion)
             {
                 var wasmTools = informationProvider.GetWasmToolsVersion(buildInfoToGenerate, workLoadList);
 

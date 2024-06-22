@@ -89,7 +89,7 @@ public class BuildInformationGenerator : IIncrementalGenerator
         bool addGitBranch = false;
         bool addDotNetVersion = false;
         bool addWorkloadMauiVersion = false;
-        bool addWorkloadWasmTools = false;
+        bool addWorkloadWasmToolsVersion = false;
         bool fakeIfDebug = true;
         bool fakeIfRelease = false;
         bool fake = false;
@@ -152,10 +152,10 @@ public class BuildInformationGenerator : IIncrementalGenerator
                     addWorkloadMauiVersion = maui;
                 }
 
-                if (namedArgument.Key == nameof(BuildInformationAttribute.AddWorkloadWasmTools)
+                if (namedArgument.Key == nameof(BuildInformationAttribute.AddWorkloadWasmToolsVersion)
                     && namedArgument.Value.Value is bool wasmTools)
                 {
-                    addWorkloadWasmTools = wasmTools;
+                    addWorkloadWasmToolsVersion = wasmTools;
                 }
 
                 if (namedArgument.Key == nameof(BuildInformationAttribute.FakeIfDebug)
@@ -201,7 +201,7 @@ public class BuildInformationGenerator : IIncrementalGenerator
                 addOSVersion,
                 addDotNetVersion,
                 addWorkloadMauiVersion,
-                addWorkloadWasmTools,
+                addWorkloadWasmToolsVersion,
                 fake
             );
     }

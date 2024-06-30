@@ -313,7 +313,7 @@ public static class SourceGenerationHelper
     { 
         sb.Append(@"
 
-#warning No build information is added. Please define which information to be added like this: [BuildInformation(AddBuildTime = true, AddGitCommit = true)]");
+#warning No build information is added. Please define which information to be added like this: [BuildInformation(AddBuildTime = true, AddGitCommitId = true)]");
     }
 
     private static void AddHeader(StringBuilder sb, in BuildInformationToGenerate buildInfoToGenerate)

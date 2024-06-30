@@ -7,7 +7,7 @@ By default, the values are faked in debug mode. This can be changed in the `[Bui
 Create a new partial class in your project and add the `[BuildInformation]` (from the `Pekspro.BuildInformationGenerator` namespace) attribute and define which information you want. For example:
 
 ```csharp
-[BuildInformation(AddBuildTime = true, AddGitCommit = true)]
+[BuildInformation(AddBuildTime = true, AddGitCommitId = true)]
 partial class MyBuildInformation
 {
 
@@ -39,8 +39,10 @@ This adds a `<PackageReference>` to your project. It's recommended that you also
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
-  <PackageReference Include="Pekspro.BuildInformationGenerator" Version="0.2.0" 
-    PrivateAssets="all" ExcludeAssets="runtime" />
+  <ItemGroup>
+      <PackageReference Include="Pekspro.BuildInformationGenerator" Version="0.2.0" 
+        PrivateAssets="all" ExcludeAssets="runtime" />
+  </ItemGroup>
 
 </Project>
 ```

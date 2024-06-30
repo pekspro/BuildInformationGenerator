@@ -16,7 +16,7 @@ namespace MyNamespace
     static partial class MyBuildInformation
     {
 
-#warning No build information is added. Please define which information to be added like this: [BuildInformation(AddBuildTime = true, AddGitCommit = true)]
+#warning No build information is added. Please define which information to be added like this: [BuildInformation(AddBuildTime = true, AddGitCommitId = true)]
 
     }
 }

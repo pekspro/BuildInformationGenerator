@@ -17,7 +17,7 @@ Create a new partial class in your project and add the `[BuildInformation]`
 which information you want. For example:
 
 ```csharp
-[BuildInformation(AddBuildTime = true, AddGitCommit = true)]
+[BuildInformation(AddBuildTime = true, AddGitCommitId = true)]
 partial class MyBuildInformation
 {
 
@@ -51,9 +51,10 @@ source generator to your final assembly:
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
-  <PackageReference Include="Pekspro.BuildInformationGenerator" Version="0.2.0" 
-    PrivateAssets="all" ExcludeAssets="runtime" />
-
+  <ItemGroup>
+      <PackageReference Include="Pekspro.BuildInformationGenerator" Version="0.2.0" 
+        PrivateAssets="all" ExcludeAssets="runtime" />
+  </ItemGroup>
 </Project>
 ```
 

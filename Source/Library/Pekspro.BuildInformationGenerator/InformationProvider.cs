@@ -64,11 +64,20 @@ public class InformationProvider
         // Make sure just 0-9 and a-f, A-F
         if (!IsValidCommitId(result))
         {
-            return new ValueSource<string>("", "git command was executed, but no value returned");
+            return new ValueSource<string>("", "git command was executed, but no value returned.");
         }
 
         return new ValueSource<string>(result, "Value was taken from the git command.");
     }
+
+    static readonly string[] BranchEnvironmentVariableNames = new string[]
+    {
+        // Azure DevOps
+        "BUILD_SOURCEBRANCHNAME", 
+
+        // GitLab
+        "CI_COMMIT_BRANCH"
+    };
 
     public virtual ValueSource<string> GetGitBranch(in BuildInformationToGenerate buildInfoToGenerate)
     {
@@ -77,17 +86,18 @@ public class InformationProvider
             return new ValueSource<string>(FakeValues.FakeGitBranch, FakeValues.FakeValueSource);
         }
 
-        // In Azure DevOps, we the get branch name from this environment variable.
-
+        foreach (var branchEnvVariableName in BranchEnvironmentVariableNames)
+        {
 #pragma warning disable RS1035 
-        string branchNameEnvVar = Environment.GetEnvironmentVariable("BUILD_SOURCEBRANCHNAME");
+            string branchName = Environment.GetEnvironmentVariable(branchEnvVariableName);
 #pragma warning restore RS1035
 
-        if (!string.IsNullOrWhiteSpace(branchNameEnvVar))
-        {
-            return new ValueSource<string>(branchNameEnvVar, "Value was taken from then BUILD_SOURCEBRANCHNAME environment variable");
+            if (!string.IsNullOrWhiteSpace(branchName))
+            {
+                return new ValueSource<string>(branchName, $"Value was taken from then {branchEnvVariableName} environment variable.");
+            }
         }
-
+        
         //string result = ExecuteProcess("git", "rev-parse --abbrev-ref HEAD", buildInfoToGenerate.FilePath);
         string result = ExecuteProcess("git", "branch --show-current", buildInfoToGenerate.FilePath);
 

@@ -73,9 +73,11 @@ public class InformationProvider
     static readonly string[] BranchEnvironmentVariableNames = new string[]
     {
         // Azure DevOps
+        // https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables
         "BUILD_SOURCEBRANCHNAME", 
 
         // GitLab
+        // https://docs.gitlab.com/ee/ci/variables/predefined_variables
         "CI_COMMIT_BRANCH"
     };
 
@@ -94,20 +96,21 @@ public class InformationProvider
 
             if (!string.IsNullOrWhiteSpace(branchName))
             {
-                return new ValueSource<string>(branchName, $"Value was taken from then {branchEnvVariableName} environment variable.");
+                return new ValueSource<string>(branchName, $"Value was taken from the {branchEnvVariableName} environment variable.");
             }
         }
         
-        //string result = ExecuteProcess("git", "rev-parse --abbrev-ref HEAD", buildInfoToGenerate.FilePath);
         string result = ExecuteProcess("git", "branch --show-current", buildInfoToGenerate.FilePath);
 
         if (string.IsNullOrWhiteSpace(result))
         {
-            string status = ExecuteProcess("git", "status", "./");
+            string status = ExecuteProcess("git", "status", buildInfoToGenerate.FilePath);
 
             if (status.Contains("detached"))
             {
-                throw new Exception("Git is in detached mode. Branch name is not available. If you are running this in CI/CD pipeline, try set the branch name to the BUILD_SOURCEBRANCHNAME environment variable.");
+                result = ExecuteProcess("git", "name-rev --name-only --refs=refs/heads/* --no-undefined --always HEAD", buildInfoToGenerate.FilePath);
+
+                return new ValueSource<string>(result, $"Git is running in detached state. Value was taken with the git name-rev command.");
             }
 
             throw new Exception("Git branch not found. Is Git initialized?");

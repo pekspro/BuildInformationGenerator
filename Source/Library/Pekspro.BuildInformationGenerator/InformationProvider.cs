@@ -104,7 +104,6 @@ public class InformationProvider
         if (string.IsNullOrWhiteSpace(result))
         {
             string status = ExecuteProcess("git", "status", "./");
-            Console.WriteLine($"Status: *{status}*");
 
             if (status.Contains("detached"))
             {

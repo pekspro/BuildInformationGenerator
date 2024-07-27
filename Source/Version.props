@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <!-- Note: Should also be changed in Constants.cs -->
-    <VersionPrefix>0.2.0</VersionPrefix>
+    <VersionPrefix>0.3.0</VersionPrefix>
     <!--<VersionSuffix>preview02</VersionSuffix>-->
     <PackageVersion Condition="'$(VersionSuffix)' == ''">$(VersionPrefix)</PackageVersion>
     <PackageVersion Condition="'$(VersionSuffix)' != ''">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
